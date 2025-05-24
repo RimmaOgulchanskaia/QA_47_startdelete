@@ -22,8 +22,13 @@ public class PhoneBookSelectors {
         pause(3);
         WebElement btnAbout = driver.findElement(By.cssSelector("[href=\"/about\"]"));
         btnAbout.click();
+        WebElement div = driver.findElement(By.cssSelector("div[class='about_main__2Uv5W']"));
+        String divText= div.getText();
+        System.out.println(divText);
+        WebElement h1 = driver.findElement(By.cssSelector("div[class='about_main__2Uv5W']>h1"));
+        System.out.println("h1-> " + h1.getText());
         pause(3);
-        WebElement btnLoginHeader = driver.findElement(By.cssSelector("[href='/login']"));
+        WebElement btnLoginHeader = driver.findElement(By.cssSelector("div[class='navbar-component_nav__1X_4m'] a:nth-child(4)"));
         btnLoginHeader.click();
         pause(3);
 
@@ -34,6 +39,9 @@ public class PhoneBookSelectors {
         inputPassword.sendKeys("Vaisbrod@12345!");
         WebElement btnLogininPageLogin = driver.findElement(By.cssSelector("[name='login']"));
         btnLogininPageLogin.click();
+        pause(3);
+        driver.quit();
+
 
 
     }
