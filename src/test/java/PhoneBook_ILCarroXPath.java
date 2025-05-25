@@ -12,6 +12,27 @@ public class PhoneBook_ILCarroXPath {
     WebDriver driver = new ChromeDriver();
 
     @Test
+    public void loginPhoneBookPositiveTest(){
+        driver.get("https://telranedu.web.app/home");
+        driver.manage().window().maximize();
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        WebElement btnLoginHeader = driver.findElement(By.xpath("//a[text()='LOGIN']"));
+        btnLoginHeader.click();
+        WebElement inputEmail1 = driver.findElement(By.xpath("//input[@name='email']"));
+        inputEmail1.sendKeys("RimmiOgulchansk@gmail.com");
+        pause(3);
+        WebElement inputPassword1 = driver.findElement(By.xpath("//*[@placeholder='Password']"));
+        inputPassword1.sendKeys("Password@12345!");
+        WebElement btnloginForm = driver.findElement(By.xpath("//form/button[1]"));
+        btnloginForm.click();
+        driver.quit();
+
+
+    }
+
+
+    @Test
     public void ILCarroXPath(){
         driver.get("https://ilcarro.web.app/search");
         driver.manage().window().maximize();
@@ -45,7 +66,7 @@ public class PhoneBook_ILCarroXPath {
         inputPasswordLogIN.sendKeys("Rimma@123456!");
         WebElement btnYalla2 = driver.findElement(By.xpath("//button[@type='submit']"));
         btnYalla2.click();
-        pause(3);
+        driver.close();
 
 
 
@@ -93,6 +114,7 @@ public class PhoneBook_ILCarroXPath {
 
 
         //driver.quit();
+
 
 
 
